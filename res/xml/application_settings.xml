@@ -52,6 +52,14 @@
     </PreferenceScreen>
 
     <PreferenceScreen
+            android:title="@string/installapplications_settings_title"
+            android:summary="@string/installapplications_settings_summary">
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.geesun.apkinstaller"
+                android:targetClass="com.android.geesun.apkinstaller.ApkInstaller" />
+    </PreferenceScreen>
+
+    <PreferenceScreen
             android:title="@string/runningservices_settings_title"
             android:summary="@string/runningservices_settings_summary">
         <intent android:action="android.intent.action.MAIN"

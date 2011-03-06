@@ -164,7 +164,7 @@ public class DisplaySettings extends PreferenceActivity implements
         if (preference == mAccelerometer) {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.ACCELEROMETER_ROTATION,
-                    mAccelerometer.isChecked() ? 1 : 0);
+                    mAccelerometer.isChecked() ? 0 : 0);
         }
         return true;
     }

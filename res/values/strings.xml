@@ -957,6 +957,7 @@
     <!-- Default access point SSID used for tethering -->
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>
 
+
     <!-- Do not translate. Used for diagnostic screens, precise translation is not necessary
          Wi-Fi Testing on the diagnostic screen-->
     <string name="testing_wifi_info" translatable="false">Wifi information</string>
@@ -3043,4 +3044,27 @@ found in the list of installed applications.</string>
     <string name="widget_count">(%d widgets)</string>
 
     <string name="cm_settings_title">CyanogenMod settings</string>
+
+    <string name="installapplications_settings_title">Install applications</string>
+    <string name="installapplications_settings_summary">Install applications from SD card</string>
+
+    <!-- Extended device info -->
+
+    <string name="ext_rom_device_info">Rom &amp; Device Info</string>
+    
+    <string name="title_ext_device_name">Device codename</string>
+
+    <string name="ext_partition_info">Partition Info</string>
+    <string name="extendedinfo_settings">Extended Info</string>
+    <string name="extended_info_title">Extended Info</string>
+    <string name="title_system_part_info">/system partition info</string>
+    <string name="title_data_part_info">/data partition info</string>
+    <string name="title_cache_part_info">/cache partition info</string>
+    <string name="title_sdcard_fat_part_info">/sdcard partition info (fat)</string>
+    <string name="title_sdcard_ext_part_info">/sdcard partition info (ext)</string>
+
+
+    <string name="used_out_of">used out of</string>
+    <string name="default_unavailable">Unavailable</string>
+    <string name="default_unimplemented">Not fully implemented yet.</string>
 </resources>
