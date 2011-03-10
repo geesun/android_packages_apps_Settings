@@ -1417,69 +1417,6 @@
     <string name="toggleWimax">WiMAX</string>
     <string name="toggleWimaxDescription">开启/关闭WiMAX</string>
 
-    <!-- Profile Settings screen --><skip/>
-    <!-- Profile Settings profile config screen title -->
-    <string name="profile_title">设置情景模式</string>
-    <!-- Profile Settings apgroup config screen title -->
-    <string name="profile_appgroup_list_title">设置应用程序群组</string>
-    <!-- Profile Settings sound mode label -->
-    <string name="sound_mode">通知模式</string>
-    <!-- Profile Settings ringer mode label -->
-    <string name="ringer_mode">铃声模式</string>
-    <!-- Profile Settings lights mode label -->
-    <string name="lights_mode">Led灯模式</string>
-    <!-- Profile Settings vibrate mode label -->
-    <string name="vibrate_mode">振动模式</string>
-    <!-- Profile notification tone -->
-    <string name="choose_soundtone">选择通知音调</string>
-    <!-- Profile ringtone -->
-    <string name="choose_ringtone">选择铃声</string>
-    <!-- Profile settings screen, section header for settings related to notification profiles -->
-    <string name="profile_settings">情景模式</string>
-    <!-- Name of the profile, setting caption -->
-    <string name="profile_name">情景模式名称</string>
-    <!-- Profile summary - hint that touching configures profile -->
-    <string name="profile_summary">点此设置情景模式</string>
-    <!-- Title for application group setting screen -->
-    <string name="profile_appgroup_title">应用程序群组: %s</string>
-    <!-- Title for application group list screen -->
-    <string name="profile_appgroups_title">应用程序群组</string>
-    <!-- Title for application group list section, hint at delete action -->
-    <string name="profile_applist_title">应用程序 - 从群组处删除</string>
-    <!-- Prompt for name when adding a new app group -->
-    <string name="profile_appgroup_name_prompt">输入应用群组名称</string>
-    <!-- Delete profile setting item -->
-    <string name="profile_delete">删除情景模式</string>
-    <!-- Delete profile confimation message -->
-    <string name="profile_delete_confirm">您确定要删除这个情景模式吗？</string>
-    <!-- Delete application from group confirm message -->
-    <string name="profile_app_delete_confirm">您确定要删除这个应用程序吗？</string>
-    <!-- Add application dialog box title -->
-    <string name="profile_choose_app">选择应用程序</string>
-    <!-- Title for profile settings screen -->
-    <string name="profile_settings_header">情景模式设置: %s</string>
-    <!-- Profile category settings heading -->
-    <string name="profile_group_header">情景模式: %1$s 目录: %2$s</string>
-    <!-- Menu item for managing app groups -->
-    <string name="menu_appgroups">管理应用程序群组</string>
-    <!-- Menu item for adding a new profile -->
-    <string name="menu_new_profile">新的情景模式</string>
-    <!-- Menu item for adding a new profile - summary -->
-    <string name="menu_new_profile_summary">添加并设置新的情景模式</string>
-    <!-- Delete an item context menu item -->
-    <string name="profile_menu_delete">删除</string>
-    <!-- Menu item for adding a new app group -->
-    <string name="profile_new_appgroup">新应用程序群组</string>
-    <!-- Menu item for deleting an app group -->
-    <string name="profile_delete_appgroup">删除此应用群组</string>
-    <!-- Menu item for adding an app -->
-    <string name="profile_add_app">添加应用程序</string>
-    <!-- Menu item for managing profiles -->
-    <string name="profile_manage">管理情景模式</string>
-    <!-- Menu item for managing app groups -->
-    <string name="profile_appgroups_manage">管理应用程序群组</string>
-    <!-- Menu item for managing app list -->
-    <string name="profile_applist_manage">管理应用程序列表</string>
     <!-- Main Settings screen setting option name to go into the profile settings screen -->
     <string name="profile_settings_title">情景模式</string>
     <!-- Sound settings screen, setting option name to pick ringtone (a list dialog comes up)-->
