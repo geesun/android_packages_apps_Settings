@@ -1418,8 +1418,6 @@
     <string name="toggleWimax">WiMAX</string>
     <string name="toggleWimaxDescription">开启/关闭WiMAX</string>
 
-    <!-- Main Settings screen setting option name to go into the profile settings screen -->
-    <string name="profile_settings_title">情景模式</string>
     <!-- Sound settings screen, setting option name to pick ringtone (a list dialog comes up)-->
     <string name="soundtone_title">通知音调</string>
     <!-- Sound settings screen, setting option summary text -->
