@@ -1164,6 +1164,7 @@
     <string name="choose_ringtone">选择铃声</string>
     <string name="profile_settings">情景模式设置</string>
     <string name="profile_name">情景模式名</string>
+    <string name="new_profile_name">&lt;新建情景模式&gt;</string>
     <string name="profile_summary">触摸以设置情景模式</string>
     <string name="profile_appgroup_title">应用程序组：%s</string>
     <string name="profile_appgroups_title">应用程序组</string>
