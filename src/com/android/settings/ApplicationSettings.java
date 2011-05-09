@@ -29,7 +29,7 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
 import android.telephony.ServiceState;
 import android.util.Log;
-
+import android.telephony.TelephonyManager;
 import android.os.SystemProperties;
 import android.app.ActivityManager;
 import android.content.Context;
