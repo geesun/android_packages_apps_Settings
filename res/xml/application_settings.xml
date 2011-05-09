@@ -25,6 +25,12 @@
             android:summaryOff="@string/install_unknown_applications"
             android:summaryOn="@string/install_unknown_applications"
             android:persistent="false" />
+    <CheckBoxPreference
+            android:key="enable_market"
+            android:title="@string/enable_market_title"
+            android:summaryOff="@string/enable_market_summary_off"
+            android:summaryOn="@string/enable_market_summary_on"
+            android:persistent="false" />
 
     <ListPreference
         android:key="app_install_location"

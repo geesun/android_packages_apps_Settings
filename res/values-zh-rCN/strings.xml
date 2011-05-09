@@ -1448,4 +1448,12 @@
  
     <string name="wimax_settings" msgid="1574837328738396794">"4G 设置"</string>
     <string name="status_wimax_mac_address" msgid="8390791848661413416">"4G MAC 地址"</string>
+    <!-- Enable market -->
+     <string name="enable_market_title">显示市场收费软件</string>
+    <!-- Enable market Off Summary -->
+    <string name="enable_market_summary_off">市场上的收费软件将不显示</string>
+    <!-- Enable market On Summary -->
+    <string name="enable_market_summary_on">市场上显示收费软件</string>
+
+    <string name="ligux_changelog_title">查看LiGux更新日志</string>
 </resources>

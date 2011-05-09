@@ -27,13 +27,22 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
+import android.telephony.ServiceState;
+import android.util.Log;
 
+import android.os.SystemProperties;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.content.pm.IPackageDataObserver;
 public class ApplicationSettings extends PreferenceActivity implements
         DialogInterface.OnClickListener {
-    
+
+    private static final String TAG = "ApplicationSettings";
+
     private static final String KEY_TOGGLE_INSTALL_APPLICATIONS = "toggle_install_applications";
     private static final String KEY_APP_INSTALL_LOCATION = "app_install_location";
     private static final String KEY_QUICK_LAUNCH = "quick_launch";
+    private static final String KEY_ENABLE_MARKET = "enable_market";
 
     // App installation location. Default is ask the user.
     private static final int APP_INSTALL_AUTO = 0;
@@ -43,8 +52,23 @@ public class ApplicationSettings extends PreferenceActivity implements
     private static final String APP_INSTALL_DEVICE_ID = "device";
     private static final String APP_INSTALL_SDCARD_ID = "sdcard";
     private static final String APP_INSTALL_AUTO_ID = "auto";
+
+    private static final String MARKET_SIM_NUMERIC_TAG = "persist.sys.ligux.sim.numeric";
+    private static final String MARKET_SIM_ALPHA_TAG = "persist.sys.ligux.sim.alpha";
+    private static final String MARKET_NUMERIC_TAG = "persist.sys.ligux.numeric";
+    private static final String MARKET_ALPHA_TAG = "persist.sys.ligux.alpha";
+    private static final String MARKET_PACKAGE_NAME = "com.android.vending";
     
+    /* can be get from a array */
+    private static final String MARKET_FAKE_NUMERIC = "31026";
+    private static final String MARKET_FAKE_ALPHA = "T-Mobile";
+
+    private ClearUserDataObserver mClearDataObserver;
+
+
     private CheckBoxPreference mToggleAppInstallation;
+
+    private CheckBoxPreference mEnableMarket;
 
     private ListPreference mInstallLocation;
 
@@ -58,6 +82,9 @@ public class ApplicationSettings extends PreferenceActivity implements
 
         mToggleAppInstallation = (CheckBoxPreference) findPreference(KEY_TOGGLE_INSTALL_APPLICATIONS);
         mToggleAppInstallation.setChecked(isNonMarketAppsAllowed());
+        
+        mEnableMarket = (CheckBoxPreference) findPreference(KEY_ENABLE_MARKET);
+        mEnableMarket.setChecked(isEnableMarketActive());
 
         mInstallLocation = (ListPreference) findPreference(KEY_APP_INSTALL_LOCATION);
         // Is app default install location set?
@@ -120,6 +147,10 @@ public class ApplicationSettings extends PreferenceActivity implements
             }
         }
 
+        if (preference == mEnableMarket) {
+            Log.w(TAG, "clicked!!!!!!!!!" + "|" +mEnableMarket.isChecked());
+            setEnableMarketActive(mEnableMarket.isChecked());
+        }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
@@ -140,6 +171,55 @@ public class ApplicationSettings extends PreferenceActivity implements
         return Settings.Secure.getInt(getContentResolver(), 
                                       Settings.Secure.INSTALL_NON_MARKET_APPS, 0) > 0;
     }
+    
+    private void forceCloseMarketApp(){
+        ActivityManager am = (ActivityManager)getSystemService(
+                Context.ACTIVITY_SERVICE);
+        am.forceStopPackage(MARKET_PACKAGE_NAME);
+    }
+
+    class ClearUserDataObserver extends IPackageDataObserver.Stub {
+       public void onRemoveCompleted(final String packageName, final boolean succeeded) {
+        }
+    }
+
+    private void forceClearMarketApp(){
+        if (mClearDataObserver == null) {
+            mClearDataObserver = new ClearUserDataObserver();
+        }
+        ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        am.clearApplicationUserData(MARKET_PACKAGE_NAME, mClearDataObserver);
+    }
+
+    private void setEnableMarketActive(boolean enabled) {
+        if (enabled) {
+            SystemProperties.set(MARKET_SIM_NUMERIC_TAG,MARKET_FAKE_NUMERIC);
+            SystemProperties.set(MARKET_SIM_ALPHA_TAG,MARKET_FAKE_ALPHA);
+            SystemProperties.set(MARKET_NUMERIC_TAG,MARKET_FAKE_NUMERIC);
+            SystemProperties.set(MARKET_ALPHA_TAG,MARKET_FAKE_ALPHA);
+        } else {
+            TelephonyManager tm = new TelephonyManager(getApplicationContext());
+            String operatorAlphaLong = tm.getNetworkOperatorName();
+            String operatorAlphaNumeric = tm.getNetworkOperator();
+            Log.d(TAG, "Clear back: " + operatorAlphaLong + "|" + operatorAlphaNumeric);
+            SystemProperties.set(MARKET_SIM_NUMERIC_TAG,operatorAlphaNumeric);
+            SystemProperties.set(MARKET_SIM_ALPHA_TAG,operatorAlphaLong);
+            SystemProperties.set(MARKET_NUMERIC_TAG,operatorAlphaNumeric);
+            SystemProperties.set(MARKET_ALPHA_TAG,operatorAlphaLong);
+        }
+        forceCloseMarketApp();
+        forceClearMarketApp();
+        Settings.Secure.putInt(getContentResolver(),
+                                      Settings.Secure.ENABLE_MARKET, enabled ? 1 : 0);
+    }
+
+    private boolean isEnableMarketActive() {
+        Log.w(TAG, Settings.Secure.ENABLE_MARKET + "|" + Settings.Secure.getInt(getContentResolver(),
+                Settings.Secure.ENABLE_MARKET, 0));
+        return Settings.Secure.getInt(getContentResolver(),
+                                      Settings.Secure.ENABLE_MARKET, 0) > 0;
+    }
+
 
     private String getAppInstallLocation() {
         int selectedLocation = Settings.System.getInt(getContentResolver(),
