@@ -3027,4 +3027,5 @@ found in the list of installed applications.</string>
     <string name="enable_market_summary_on">Paid apps will show in market</string>
     
     <string name="ligux_changelog_title">View LiGux changelog</string>
+    <string name="build_info">Compile Info</string>
 </resources>
