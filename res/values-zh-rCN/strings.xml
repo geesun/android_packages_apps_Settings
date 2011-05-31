@@ -445,6 +445,8 @@
     <string name="lock_sounds_enable_title" msgid="1575990840389107141">"屏幕锁定提示音"</string>
     <string name="lock_sounds_enable_summary_on" msgid="145741024028391473">"锁定和解锁屏幕时播放声音"</string>
     <string name="lock_sounds_enable_summary_off" msgid="8481243116223542804">"锁定和解锁屏幕时播放声音"</string>
+    <string name="power_sounds_enable_title">电量警告提示</string>
+    <string name="power_sounds_enable_summary">电量太低时播放声音提示.</string>
     <string name="haptic_feedback_enable_title" msgid="6311736559245411290">"触感"</string>
     <string name="haptic_feedback_enable_summary_on" msgid="1875779656524793053">"按软键以及进行某些 UI 交互时振动"</string>
     <string name="haptic_feedback_enable_summary_off" msgid="7287885436963105314">"按软键以及进行某些 UI 交互时振动"</string>
@@ -1171,6 +1173,8 @@
     <string name="profile_summary">触摸以设置情景模式</string>
     <string name="profile_appgroup_title">应用程序组：%s</string>
     <string name="profile_appgroups_title">应用程序组</string>
+    <string name="profile_volumeoverrides_title">全局音量</string>
+    <string name="profile_volumeoverrides_summary">点击设置音量.</string>
     <string name="profile_applist_title">应用程序 - 单击从组中移除</string>
     <string name="profile_appgroup_name_prompt">输入应用程序组的名称</string>
     <string name="profile_delete">删除情景模式</string>
