@@ -1447,7 +1447,7 @@
     <string name="title_sdcard_ext_part_info">/sdcard 卡分区 (ext)</string>
 
 
-    <string name="used_out_of">已使用了</string>
+    <string name="used_out_of">已用,共</string>
     <string name="default_unavailable">不存在</string>
     <string name="default_unimplemented">功能还没完成，有些不准确.</string>
  
